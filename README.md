@@ -146,12 +146,11 @@ if (env.BRANCH_NAME == "RELEASE_BRANCH") {
         }
 
         stage("Build/Test") {
-            sh 'mvn clean install -Pdevqa'
+            sh 'mvn clean install -Paws'
         }
 
         stage("Publish/Deploy") {
-            stash includes: '**/target/*-aws.jar', name: 'app'
-            sh "mv  target/*aws.jar lambda.jar"
+            sh "mv  target/*aws.jar lambda.jar" // the aws cli doesn't like wildcards
             sh "aws lambda update-function-code --function-name Lambda-Function-Name --region us-east-1 --zip-file fileb://lambda.jar"
         }
     }
