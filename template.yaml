@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Spring Cloud Function impl of Airline Seat Planner.
+Resources:
+  AirlineSeatPlannerLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Airline-Seat-Planner
+      Handler: ie.benjamin.airlineseatplanner.function.AirlineSeatPlannerLambdaFunctionHandler
+      Description: calling airplane seat planner API lambda function.
+      Runtime: java8
+      CodeUri: ./target/Airline-Seat-Planner-0.0.1-SNAPSHOT-aws.jar
+      MemorySize: 320
+      Timeout: 120
+      Environment:
+        Variables:
+          SPRING_PROFILES_ACTIVE: aws

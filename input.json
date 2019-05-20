@@ -1,0 +1,98 @@
+{
+  "rowSize": 4,
+  "rowHeight": 4,
+  "groupList": [
+    {
+      "passengerList": [
+        {
+          "windowPref": true,
+          "name": "1"
+        },
+        {
+          "windowPref": false,
+          "name": "2"
+        },
+        {
+          "windowPref": false,
+          "name": "3"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": false,
+          "name": "4"
+        },
+        {
+          "windowPref": false,
+          "name": "5"
+        },
+        {
+          "windowPref": false,
+          "name": "6"
+        },
+        {
+          "windowPref": false,
+          "name": "7"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": false,
+          "name": "8"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": false,
+          "name": "9"
+        },
+        {
+          "windowPref": false,
+          "name": "10"
+        },
+        {
+          "windowPref": true,
+          "name": "11"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": true,
+          "name": "12"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": false,
+          "name": "13"
+        },
+        {
+          "windowPref": false,
+          "name": "14"
+        }
+      ]
+    },
+    {
+      "passengerList": [
+        {
+          "windowPref": false,
+          "name": "15"
+        },
+        {
+          "windowPref": false,
+          "name": "16"
+        }
+      ]
+    }
+  ]
+}
