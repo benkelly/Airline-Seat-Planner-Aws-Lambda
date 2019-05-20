@@ -1,4 +1,5 @@
 # Serverless - Airline Seat Planner
+[![Build Status](https://travis-ci.org/benkelly/Airline-Seat-Planner-Aws-Lambda.svg?branch=master)](https://travis-ci.org/benkelly/Airline-Seat-Planner-Aws-Lambda)
 
 ## Table of contents
 - [Serverless - Airline Seat Planner](#serverless---airline-seat-planner)
@@ -99,7 +100,10 @@ thing as a "Cold start & Warm start" when It comes to invoking a serverless func
 # Getting Started
 1. clone repo and cd into it.
     ```bash
-    git clone PUT_REPO_HERE
+    git clone git@github.com:benkelly/Airline-Seat-Planner-Aws-Lambda.git
+    ```
+    ```bash
+    cd Airline-Seat-Planner-Aws-Lambda
     ```
 2. install packages and run test.
     ```bash
