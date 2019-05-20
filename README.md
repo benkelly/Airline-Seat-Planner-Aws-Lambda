@@ -22,38 +22,25 @@
 
 # Intro
 
-This Airline Seating planner aims to keep passengers satisfaction high by accommodating their seating preferences 
-(such as window seat and group seating), when sorting out the seating plan.
+This Airline Seating planner aims to keep passenger satisfaction high by accommodating their seating preferences (such as window seat and group seating), when sorting out the seating plan.
 
 I solved this problem with 2 different sorting methods, discussed [below](#Sorting Approaches Taken).
 
-Then also implemented this logic in to Serverless application and deployed to [AWS Lambda](#AWS Lambda) which can be 
-tested on 
-right now.
-
+This logic was also implemented in to a Serverless application and deployed to [AWS Lambda](#AWS Lambda), which can be tested on right now.
 
 ## Sorting Approaches Taken
-I decided to try out routes of solving this sorting problem:
+I decided to try out two different routes of solving this sorting problem:
 
 #### Conditional Naive Implementation
 
-This implementation aims to satisfy the most important passengers first (i.e. the largest groups with Window 
-preferences), by sorting their seats first and descending thought the passenger groups in that pattern. All while 
-comparing the possible satisfaction for each possible row based on if that current row will satisfy all their needs 
-factoring the the already seated passengers in window seat and such.
+This implementation aims to satisfy the most important passengers first (i.e. the largest groups with Window preferences). This is done by sorting their seats first and descending through the passenger groups in that pattern, all while comparing the possible satisfaction for each possible row based on whether that current row will satisfy all their needs, factoring in the already seated passengers in window seats and such.
 
 #### Monte Carlo based decision Implementation
 
-This is a far less complex implementation, but I was curious how this type of decision algorithm would compare to the 
-Naive implementation, as I felt that the short list of conditional requirements for the passenger's criteria plus the  
-real life defined max size of passengers and airplane could carry would be small enough to compute in a reasonable 
-time. 
-For this implementation Monte Carlo algorithm simply cares about the final overall passenger satisfaction score, it picks
- the seat rows at random, it will move a window preference passenger in a group to a window seat but it doesn't aim to,
-  That's only out of luck and the the overall satisfaction score reflects if the passenger's criteria wasn't met. the
-   algorithm will constantly sort will til it gets a satisfaction of 1000% or run out of epochs when it then will take its best results.
+This is a far less complex implementation, but I was curious how this type of decision algorithm would compare to the Naive implementation, as I felt that the short list of conditional requirements for the passenger's criteria plus the
+real life defined max size of passengers and airplane could carry would be small enough to compute in a reasonable time. For this implementation, the Monte Carlo algorithm simply cares about the final overall passenger satisfaction score, it picks the seat rows at random, it will move a window preference passenger in a group to a window seat but it doesn't aim to, That's only out of luck and the the overall satisfaction score reflects if the passenger's criteria wasn't met. The algorithm will constantly sort will until it gets a satisfaction of 100% or run out of epochs when it will then take its best results.
 
-(BTW the largest current commercial airplane is the Airbus A380 which can carry, 544 people)
+(The largest current commercial airplane is the Airbus A380 which can carry 544 people 🤓)
 
 ### Comparison
 
@@ -64,11 +51,10 @@ For this implementation Monte Carlo algorithm simply cares about the final overa
 
 # AWS Lambda
 
-I felt that this would application would server a much better application if accessible through an API and that a 
+I felt that this application would serve a much better application if accessible through an API and that a 
 light weight serverless architecture was the best fit.
  
-I chose to also use the [Spring Cloud Function framework](https://spring.io/projects/spring-cloud-function) as I love Spring and also there idea of aiming to create an 
-almost cloud agnostic framework for serverless applications and such.
+I chose to also use the [Spring Cloud Function framework](https://spring.io/projects/spring-cloud-function) as I love Spring and also there idea of aiming to create an almost cloud agnostic framework for serverless applications and such.
 
 ### curl example:
 ```bash
@@ -85,8 +71,7 @@ curl --request POST \
 
 __Everyone__: "Hey? I just curled this api and it took a while?"
 
-__me__: "Yeah i know.. curl it again? much faster? Yeah one of few drawbacks of serverless architecture, where theres such 
-thing as a "Cold start & Warm start" when It comes to invoking a serverless function.. here a [link](https://blog.octo.com/en/cold-start-warm-start-with-aws-lambda/) to a nice artal abbout it!
+__me__: "Yeah i know.. curl it again? much faster? Yay.. One of the few drawbacks of serverless architecture, where theres such thing as a "Cold start & Warm start" when It comes to invoking a serverless function.. here a [link](https://blog.octo.com/en/cold-start-warm-start-with-aws-lambda/) to a nice article about it!
 
 
 ### required
@@ -115,7 +100,7 @@ thing as a "Cold start & Warm start" when It comes to invoking a serverless func
     ```
     ![](readme_images/local_runnig.gif)
     
-    <h4 id="spring-api">
+    <h4 id="springApi">
 4. Want more fun? like to try the Api locally just through Spring?
     -   Re-run maven with the following following profile `api` 
     </h4>
@@ -134,9 +119,8 @@ thing as a "Cold start & Warm start" when It comes to invoking a serverless func
     note: the `@input.json` refers to the file in the root of this project, which is also a good reference to the 
     json schema for the input data JSON! :neckbeard:
     
-5. If you are even more of a mad insane you can run it trough Sam-cli:
-    - I won't go into much detail about running this project though as you'll be essentially repeating step [4]
-    (#spring-api) plus there's loads of great guides out there!
+5. If you are even up for some more fun you can run it through Sam-cli:
+    - I won't go into much detail about running this project though as you'll be essentially repeating step [4](#springApi) plus there's loads of great guides out there!
         - Either way I've supplied a `template.yaml` to get the ball running! :^)
 
 
@@ -147,10 +131,10 @@ thing as a "Cold start & Warm start" when It comes to invoking a serverless func
 ## continuous integration (CI) 
 
 One of the best and worst things about building for AWS Lambda is the "agileness" of editing and re-deployment which 
-is great for tinkering with you weekend hobby of making a homemade smart kettle but for insundry; local development 
+is great for tinkering with you weekend hobby of making a homemade smart kettle but for Industry; local development 
 with testing and CI piplines to devqa and then prod versions is king.
 
-###heres a little example of how this could be implemented in to a CI pipeline like Jenkins :heart_eyes:
+### heres a little example of how this could be implemented in to a CI pipeline like Jenkins :heart_eyes:
 
 ```groovy
 if (env.BRANCH_NAME == "RELEASE_BRANCH") {
