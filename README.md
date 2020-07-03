@@ -59,8 +59,8 @@ I chose to also use the [Spring Cloud Function framework](https://spring.io/proj
 ### curl example:
 ```bash
 curl --request POST \
-  --url https://api.benjamin.ie/asp \
-  --header 'x-api-key: Sg6iTu695K5X42tm43mKO20YpK8jx86C7omvTR2m' \
+  --url https://aws.benjamin.ie/asp \
+  --header 'x-api-key: VD0Z5R3HIP8sQ8xpq7eSV8ozbRqqJKYH4n6r63WE' \
   --data '{"rowSize":4,"rowHeight":4,"groupList":[{"passengerList":[{"windowPref":true,"name":"1"},{"windowPref":false,"name":"2"},{"windowPref":false,"name":"3"}]},{"passengerList":[{"windowPref":false,"name":"4"},{"windowPref":false,"name":"5"},{"windowPref":false,"name":"6"},{"windowPref":false,"name":"7"}]},{"passengerList":[{"windowPref":false,"name":"8"}]},{"passengerList":[{"windowPref":false,"name":"9"},{"windowPref":false,"name":"10"},{"windowPref":true,"name":"11"}]},{"passengerList":[{"windowPref":true,"name":"12"}]},{"passengerList":[{"windowPref":false,"name":"13"},{"windowPref":false,"name":"14"}]},{"passengerList":[{"windowPref":false,"name":"15"},{"windowPref":false,"name":"16"}]}]}'
 ```
   PS i like to pipe `|` with [./jq](https://stedolan.github.io/jq/)`| jq '.'` or just simply `| python -m json.tool` 
